@@ -1,0 +1,247 @@
+/* Дизайн-система Яндекса на CSS-переменных 
+   Задание 1: Смена оранжевой палитры; Задание 14: Смена цвета шрифта */
+:root {
+  --bg-page: #f5f5f7;                 /* Светлый фон */
+  --bg-calc: #ffffff;                 /* Белая базовая карточка */
+  --bg-search-bar: #ffffff;           /* Поисковая строка */
+  --border-search: #e2e2e5;           
+  --text-main: #000000;               /* Черный цвет шрифта */
+  --text-muted: #78787a;
+  --btn-digit: #f2f2f5;               /* Светло-серые кнопки */
+  --btn-digit-hover: #e8e8ed;         /* Цвет при наведении (Задание 8) */
+  --btn-op: #e2e2e5;                  
+  --btn-op-hover: #d7d7dc;            
+  --btn-yandex-red: #fc3d39;          /* Фирменный красный цвет Яндекса вместо оранжевого */
+  --btn-yandex-hover: #e0322e;
+  --text-result: #ff0055;             /* Измененный цвет вывода результата (Задание 4) */
+  --shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* Задание 2: Сделать фон темным (наподобие ночной темы) при активации переключателя */
+body:has(#theme-switch:checked) {
+  --bg-page: #1a1a1a;                 /* Темный фон страницы */
+  --bg-calc: #242426;                 /* Темная карточка калькулятора */
+  --bg-search-bar: #2d2d30;           
+  --border-search: #3a3a3d;           
+  --text-main: #ffffff;               /* Светлый цвет шрифта */
+  --text-muted: #98989a;              
+  --btn-digit: #2d2d30;               
+  --btn-digit-hover: #3a3a3d;         /* Измененный цвет наведения в темной теме */
+  --btn-op: #3a3a3d;                  
+  --btn-op-hover: #48484c;            
+  --text-result: #00ffcc;             /* Измененный цвет вывода для ночной темы */
+  --shadow: 0 4px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* Настройки страницы и позиционирования */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  background-color: var(--bg-page);
+  
+  /* Задание 15: Добавление изображения на фон (SVG-паттерн в виде сетки) */
+  background-image: linear-gradient(var(--btn-digit) 1px, transparent 1px), linear-gradient(90deg, var(--btn-digit) 1px, transparent 1px);
+  background-size: 24px 24px;
+  
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  
+  /* Задание 10: Выравнивание калькулятора строго по центру экрана */
+  align-items: center;               
+  justify-content: center;
+  
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Задание 19: Стилизация поля с целью и маркера подсветки */
+.yandex-info-box {
+  max-width: 280px;
+  margin-bottom: 15px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--text-muted);
+}
+.yandex-info-box mark {
+  background-color: #ffe66d;
+  color: #000000;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+/* Задание 12: Оформление переключателя темы */
+.theme-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 0.85rem;
+  user-select: none;
+}
+.yandex-switch {
+  position: relative;
+  display: inline-block;
+  width: 38px;
+  height: 22px;
+}
+.yandex-switch input { display: none; }
+.slider {
+  position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+  background-color: var(--btn-op);
+  border-radius: 22px; transition: .2s;
+}
+.slider:before {
+  position: absolute; content: ""; height: 16px; width: 16px; left: 3px; bottom: 3px;
+  background-color: var(--bg-calc);
+  border-radius: 50%; transition: .2s;
+}
+input:checked + .slider { background-color: var(--btn-yandex-red); }
+input:checked + .slider:before { transform: translateX(16px); }
+
+/* Контейнер калькулятора карточного типа (Задание 20) */
+.yandex-calc-card {
+  background-color: var(--bg-calc);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  width: 272px;                       
+  box-sizing: border-box;
+  border: 1px solid var(--border-search);
+}
+
+/* Задание 11: Увеличен размер окна вывода; Задание 5: Скругленные края; 
+   Задание 6: Другой шрифт (моноширинный); Задание 13: Шрифт тоньше (weight: 300) */
+.search-bar-display {
+  width: 100%;
+  height: 64px;                       
+  background-color: var(--bg-search-bar);
+  border: 2px solid var(--border-search);
+  border-radius: 12px;                
+  margin-bottom: 16px;
+  padding: 0 14px;
+  box-sizing: border-box;
+  text-align: right;
+  line-height: 60px;
+  font-size: 2rem;
+  color: var(--text-result);
+  font-family: 'Courier New', Courier, monospace; 
+  font-weight: 300;                   
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Ряды сетки кнопок */
+.grid-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+/* Задание 3: Кнопки квадратные вместо круглых (радиус всего 10px вместо 50%); 
+   Задание 7: Сделать шрифт более толстым (weight: 700) */
+.my-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;                
+  border: none;
+  background-color: var(--btn-digit);
+  color: var(--text-main);
+  font-size: 1.3rem;
+  font-weight: 700;                   
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.1s ease, transform 0.1s ease;
+}
+
+/* Задание 8: Изменение цвета при наведении мыши на кнопку */
+.my-btn:hover {
+  background-color: var(--btn-digit-hover);
+}
+.my-btn:active {
+  transform: scale(0.95);
+}
+
+/* Кнопки операций */
+.my-btn.secondary {
+  background-color: var(--btn-op);
+}
+.my-btn.secondary:hover {
+  background-color: var(--btn-op-hover);
+}
+
+/* Кнопка "Найти" (=) в фирменном стиле Яндекса */
+.my-btn.primary.execute {
+  width: 112px;                       
+  background-color: var(--btn-yandex-red);
+  color: #ffffff;
+}
+.my-btn.primary.execute:hover {
+  background-color: var(--btn-yandex-hover);
+}
+
+/* Нижняя панель дополнительных заданий */
+.yandex-addons-panel {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Задание 17: Выпадающий список */
+.yandex-select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: var(--btn-digit);
+  color: var(--text-main);
+  border: 1px solid var(--border-search);
+  font-size: 0.85rem;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Задание 18: Сворачивающиеся подробности (Автор) */
+.yandex-details {
+  background-color: var(--btn-digit);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  border: 1px solid var(--border-search);
+}
+.yandex-details summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+.yandex-details p {
+  margin: 6px 0 0 0;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* Задание 16: Кнопка со ссылкой на GitHub */
+.yandex-github-btn {
+  display: block;
+  text-align: center;
+  background-color: #24292e;
+  color: #ffffff;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.yandex-github-btn:hover {
+  background-color: #3f444a;
+}
+
+/* Задание 9: Подпись внизу "ЛР выполнена ФИО" */
+.yandex-footer {
+  margin-top: 20px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}

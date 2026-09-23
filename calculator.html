@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Яндекс.Калькулятор — Лабораторная работа №1</title>
+  <!-- Подключение внешнего файла стилей (Пункт 6 методички) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Задание 19: Поле с целью ЛР и подсветкой ключевых слов через тег <mark> -->
+  <div class="yandex-info-box">
+    <p><strong>Цель работы:</strong> <mark>знакомство</mark> с инструментами построения пользовательских интерфейсов веб-сайтов: <mark>HTML</mark>, <mark>CSS</mark>.</p>
+  </div>
+
+  <!-- Задание 12: Кнопка для смены темы оформления (цвета фона) -->
+  <div class="theme-toggle-wrapper">
+    <label class="yandex-switch">
+      <input type="checkbox" id="theme-switch">
+      <span class="slider"></span>
+    </label>
+    <span>Ночной режим Яндекса</span>
+  </div>
+
+  <!-- Главный контейнер калькулятора (Задание 10 - выровнен по центру, Задание 20 - стиль Яндекса) -->
+  <div class="yandex-calc-card">
+    
+    <!-- Задание 4: Изменен цвет вывода; Задание 5: Скругленные края; Задание 6: Шрифт цифр; 
+         Задание 11: Увеличен размер окна; Задание 13: Шрифт тоньше -->
+    <div id="result" class="search-bar-display">0</div>
+
+    <!-- Сетка кнопок (Задание 3: Квадратные; Задание 7: Более толстый шрифт; Задание 1: Палитра Яндекса) -->
+    <div class="grid-row">
+      <button id="btn_op_clear" class="my-btn secondary">C</button>
+      <button id="btn_op_sign" class="my-btn secondary">+/-</button>
+      <button id="btn_op_percent" class="my-btn secondary">%</button>
+      <button id="btn_op_div" class="my-btn secondary">/</button>
+    </div>
+
+    <div class="grid-row">
+      <button id="btn_digit_7" class="my-btn">7</button>
+      <button id="btn_digit_8" class="my-btn">8</button>
+      <button id="btn_digit_9" class="my-btn">9</button>
+      <button id="btn_op_mult" class="my-btn secondary">x</button>
+    </div>
+
+    <div class="grid-row">
+      <button id="btn_digit_4" class="my-btn">4</button>
+      <button id="btn_digit_5" class="my-btn">5</button>
+      <button id="btn_digit_6" class="my-btn">6</button>
+      <button id="btn_op_minus" class="my-btn secondary">-</button>
+    </div>
+
+    <div class="grid-row">
+      <button id="btn_digit_1" class="my-btn">1</button>
+      <button id="btn_digit_2" class="my-btn">2</button>
+      <button id="btn_digit_3" class="my-btn">3</button>
+      <button id="btn_op_plus" class="my-btn secondary">+</button>
+    </div>
+
+    <div class="grid-row">
+      <button id="btn_digit_0" class="my-btn">0</button>
+      <button id="btn_digit_dot" class="my-btn">.</button>
+      <button id="btn_op_equal" class="my-btn primary execute">=</button>
+    </div>
+
+    <!-- Дополнительный блок под сеткой кнопок -->
+    <div class="yandex-addons-panel">
+      
+      <!-- Задание 17: Поле с выпадающим списком -->
+      <select class="yandex-select">
+        <option value="standard">Стандартный калькулятор</option>
+        <option value="currency">Яндекс.Конвертер валют</option>
+        <option value="engineering">Инженерный режим</option>
+      </select>
+
+      <!-- Задание 18: Сворачивающиеся и разворачивающиеся подробности -->
+      <details class="yandex-details">
+        <summary>Автор проекта</summary>
+        <p>ФИО: Горбунова В.С.<br>Группа: ИБМ3-54Б</p>
+      </details>
+
+      <!-- Задание 16: Кнопка с точной ссылкой на ваш GitHub -->
+      <a href="https://github.com/Nika1212212/Razrabotka-Internet-Prilozheniy" target="_blank" class="yandex-github-btn">Открыть репозиторий GitHub</a>
+      
+    </div>
+  </div>
+
+  <!-- Задание 9: Надпись внизу страницы "ЛР выполнена ФИО" -->
+  <div class="yandex-footer">
+    ЛР выполнена Горбунова В.С.
+  </div>
+
+</body>
+</html>
