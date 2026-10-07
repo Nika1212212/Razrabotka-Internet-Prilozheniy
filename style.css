@@ -1,8 +1,7 @@
-/* Дизайн-система Яндекса на CSS-переменных 
-   Задание 1: Смена оранжевой палитры; Задание 14: Смена цвета шрифта */
+/* Задание 1: Смена оранжевой палитры; Задание 14: Смена цвета шрифта */
 :root {
   --bg-page: #f5f5f7;                 /* Светлый фон */
-  --bg-calc: #ffffff;                 /* Белая базовая карточка */
+  --bg-calc: #ffffff;                 /* Белая карточка */
   --bg-search-bar: #ffffff;           /* Поисковая строка */
   --border-search: #e2e2e5;           
   --text-main: #000000;               /* Черный цвет шрифта */
@@ -11,7 +10,7 @@
   --btn-digit-hover: #e8e8ed;         /* Цвет при наведении (Задание 8) */
   --btn-op: #e2e2e5;                  
   --btn-op-hover: #d7d7dc;            
-  --btn-yandex-red: #fc3d39;          /* Фирменный красный цвет Яндекса вместо оранжевого */
+  --btn-yandex-red: #fc3d39;          /* красный цвет Яндекса */
   --btn-yandex-hover: #e0322e;
   --text-result: #ff0055;             /* Измененный цвет вывода результата (Задание 4) */
   --shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
@@ -38,7 +37,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
   background-color: var(--bg-page);
   
-  /* Задание 15: Добавление изображения на фон (SVG-паттерн в виде сетки) */
+  /* Задание 15: Добавление изображения на фон */
   background-image: linear-gradient(var(--btn-digit) 1px, transparent 1px), linear-gradient(90deg, var(--btn-digit) 1px, transparent 1px);
   background-size: 24px 24px;
   
