@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "src": "https://flagcdn.com/w320/tr.png",
+    "title": "Турция",
+    "text": "Туристическая виза, срок оформления 5–7 рабочих дней",
+    "price": 4500,
+    "visaType": "tourist"
+  },
+  {
+    "id": 2,
+    "src": "https://flagcdn.com/w320/de.png",
+    "title": "Германия",
+    "text": "Шенгенская виза, требуется биометрия и страховка",
+    "price": 8900,
+    "visaType": "schengen"
+  },
+  {
+    "id": 3,
+    "src": "https://flagcdn.com/w320/us.png",
+    "title": "США",
+    "text": "Виза B1/B2, обязательное собеседование в посольстве",
+    "price": 12000,
+    "visaType": "business"
+  },
+  {
+    "id": 4,
+    "src": "https://flagcdn.com/w320/jp.png",
+    "title": "Япония",
+    "text": "Туристическая виза, оформление через аккредитованное агентство",
+    "price": 7000,
+    "visaType": "tourist"
+  }
+]
