@@ -1,0 +1,416 @@
+/* ============================================
+   Яндекс-стиль для ЛР3 — Визовый центр РФ
+   Дизайн-система на CSS-переменных
+   ============================================ */
+:root {
+  --bg-page: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-panel: #ffffff;
+  --border: #e2e2e5;
+  --text-main: #000000;
+  --text-muted: #78787a;
+  --accent: #fc3d39;
+  --accent-hover: #e0322e;
+  --accent-soft: #eef2ff;
+  --accent-soft-hover: #e0e7ff;
+  --shadow: 0 4px 25px rgba(0, 0, 0, 0.06);
+  --radius-card: 16px;
+  --radius-btn: 10px;
+}
+
+/* Тёмная тема через :has() — как в ЛР2 */
+body:has(#theme-switch:checked) {
+  --bg-page: #1a1a1a;
+  --bg-card: #242426;
+  --bg-panel: #2d2d30;
+  --border: #3a3a3d;
+  --text-main: #ffffff;
+  --text-muted: #98989a;
+  --accent-soft: #1e1b4b;
+  --accent-soft-hover: #312e81;
+  --shadow: 0 4px 30px rgba(0, 0, 0, 0.45);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  background-color: var(--bg-page);
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: var(--text-main);
+  min-height: 100vh;
+  margin: 0;
+  padding: 24px 16px 40px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* ============ Шапка (HeaderComponent) ============ */
+.navbar {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow);
+  padding: 12px 20px;
+  margin-bottom: 20px !important;
+}
+
+.navbar-brand {
+  color: var(--text-main) !important;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.navbar .btn {
+  background-color: var(--accent-soft);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-btn);
+  font-weight: 600;
+  padding: 6px 14px;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+.navbar .btn:hover {
+  background-color: var(--accent-soft-hover);
+  color: var(--text-main);
+}
+.navbar .btn:active { transform: scale(0.96); }
+
+/* ============ Панель фильтра ============ */
+.panel-row {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow);
+  padding: 14px 18px;
+  margin-bottom: 20px !important;
+}
+
+.form-label {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.form-select {
+  background-color: var(--bg-panel);
+  color: var(--text-main);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-btn);
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+.form-select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(252, 61, 57, 0.15);
+}
+
+#add-button {
+  background-color: var(--accent);
+  border: none;
+  border-radius: var(--radius-btn);
+  font-weight: 700;
+  color: #ffffff;
+  padding: 9px 18px;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+#add-button:hover { background-color: var(--accent-hover); }
+#add-button:active { transform: scale(0.96); }
+
+/* ============ Карточка заявки ============ */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.10);
+}
+
+/* Одинаковые квадратные картинки в карточках (флаги стран) */
+.card-img-top {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--bg-panel);
+}
+
+.card-body { padding: 16px; }
+
+.card-title {
+  color: var(--text-main);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.card-text {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.card .btn-primary {
+  background-color: var(--accent-soft);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  border-radius: var(--radius-btn);
+  font-weight: 600;
+  padding: 6px 12px;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+.card .btn-primary:hover {
+  background-color: var(--accent-soft-hover);
+  color: var(--text-main);
+}
+.card .btn-primary:active { transform: scale(0.96); }
+
+.card .btn-danger {
+  background-color: transparent;
+  border: 1px solid var(--border);
+  color: var(--accent);
+  border-radius: var(--radius-btn);
+  font-weight: 600;
+  padding: 6px 12px;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+.card .btn-danger:hover {
+  background-color: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+}
+.card .btn-danger:active { transform: scale(0.96); }
+
+/* ============ Страница заявки (ProductComponent) ============ */
+.card.mb-3 {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.card.mb-3 .card-title {
+  font-size: 1.3rem;
+  line-height: 1.3;
+}
+.card.mb-3 .card-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.card.mb-3 img {
+  height: 100%;
+  object-fit: cover;
+  min-height: 240px;
+}
+
+/* ============ Бейджи (вариант «визы + значки») ============ */
+.badge {
+  border-radius: var(--radius-btn);
+  padding: 5px 10px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  vertical-align: middle;
+}
+
+/* Бейдж-счётчик в шапке */
+.navbar .badge {
+  border-radius: 999px;
+  padding: 6px 14px;
+}
+
+/* Цена/стоимость чуть крупнее остальных бейджей */
+.card .badge.fs-6 {
+  font-size: 0.9rem !important;
+  padding: 6px 12px;
+}
+
+/* В тёмной теме жёлтый и голубой бейджи — с чёрным текстом */
+body:has(#theme-switch:checked) .badge.text-bg-warning,
+body:has(#theme-switch:checked) .badge.text-bg-info {
+  color: #000;
+}
+
+/* ============ Строка «Тип визы (технически): …» ============ */
+.category-line {
+  margin-top: 4px;
+  margin-bottom: 10px;
+}
+.category-line small {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+.category-line code {
+  color: var(--accent);
+  background-color: var(--accent-soft);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+/* ============ Пустое состояние ============ */
+.empty-state {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  padding: 20px;
+  background-color: var(--bg-card);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-card);
+  text-align: center;
+  width: 100%;
+}
+
+/* ============ Переключатель темы ============ */
+.theme-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  user-select: none;
+}
+.yandex-switch {
+  position: relative;
+  display: inline-block;
+  width: 38px;
+  height: 22px;
+}
+.yandex-switch input { display: none; }
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: var(--border);
+  border-radius: 22px;
+  transition: 0.2s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px; width: 16px;
+  left: 3px; bottom: 3px;
+  background-color: var(--bg-card);
+  border-radius: 50%;
+  transition: 0.2s;
+}
+input:checked + .slider { background-color: var(--accent); }
+input:checked + .slider:before { transform: translateX(16px); }
+
+/* ============ Футер ============ */
+.yandex-footer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.yandex-footer mark {
+  background-color: #ffe66d;
+  color: #000;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+/* ============ ЛР5: фильтр по названию и кнопки панели ============ */
+/* Фильтр может переносить свои элементы, но кнопка «Добавить» остаётся
+   на одной строке с подписью «Фильтр по названию» */
+.panel-row { flex-wrap: nowrap; align-items: flex-start; }
+#filter-root { flex: 1 1 auto; min-width: 0; }
+#filter-root .filter-input { flex: 0 1 300px; min-width: 120px; }
+#add-button.add-button { flex: 0 0 auto; margin-left: auto; }
+
+.filter-input {
+  background-color: var(--bg-panel);
+  color: var(--text-main);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-btn);
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+.filter-input::placeholder { color: var(--text-muted); }
+.filter-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(252, 61, 57, 0.15);
+}
+
+.panel-row .btn:not(#add-button) {
+  background-color: var(--accent-soft);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-btn);
+  font-weight: 600;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+.panel-row .btn:not(#add-button):hover {
+  background-color: var(--accent-soft-hover);
+  color: var(--text-main);
+}
+.panel-row .btn:not(#add-button):active { transform: scale(0.96); }
+
+/* Кнопка «Изменить» на карточке */
+.card .btn-outline-primary {
+  background-color: transparent;
+  border: 1px solid var(--border);
+  color: var(--accent);
+  border-radius: var(--radius-btn);
+  font-weight: 600;
+  padding: 6px 12px;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+.card .btn-outline-primary:hover {
+  background-color: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.card .btn-outline-primary:active { transform: scale(0.96); }
+
+/* ============ ЛР5: страница добавления/редактирования ============ */
+.visa-form {
+  max-width: 720px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow);
+}
+.visa-form .form-label {
+  color: var(--text-main);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.visa-form .form-control,
+.visa-form .form-select {
+  background-color: var(--bg-panel);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-btn);
+}
+.visa-form .form-control:focus,
+.visa-form .form-select:focus {
+  background-color: var(--bg-panel);
+  color: var(--text-main);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(252, 61, 57, 0.15);
+}
+.visa-form .form-control::placeholder { color: var(--text-muted); }
+
+/* ============ Адаптивность для мелких экранов ============ */
+@media (max-width: 576px) {
+  .card { width: 100% !important; }
+  .panel-row { padding: 10px 12px; }
+  .panel-row .form-select { max-width: 100% !important; width: 100%; }
+  .filter-input { max-width: 100% !important; width: 100%; }
+}

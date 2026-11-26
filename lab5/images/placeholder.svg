@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200">
+  <rect width="320" height="200" fill="#eef2ff"/>
+  <circle cx="160" cy="100" r="62" fill="none" stroke="#fc3d39" stroke-width="8"/>
+  <path d="M98 100h124M160 38c-26 20-26 104 0 124M160 38c26 20 26 104 0 124" fill="none" stroke="#fc3d39" stroke-width="6"/>
+  <text x="160" y="180" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#78787a">виза</text>
+</svg>
